@@ -6,6 +6,40 @@ Classes
 @author: shashwatsparsh
 """
 
+#%%
+        
+class AirFrame:
+    def __init__(self, n, mass):
+        self.__n = n # number of arms
+        self.__mass = mass # maxx
+
+    @property
+    def numArms(self):
+        return self.__n
+    
+    @property
+    def mass(self):
+        return self.__mass
+   
+#%%
+
+class FlightComputer:
+    def __init__(self, name, mass, current):
+        self.__name = name
+        self.__current = current
+        self.__mass = mass
+        
+    @property
+    def current(self):
+        return self.__current
+    
+    @property
+    def mass(self):
+        return self.__mass
+    
+
+#%%     
+
 class Prop:
     def __init__(self, diameter, pitch, mass):
         self.__pitch = pitch
@@ -24,6 +58,7 @@ class Prop:
     def mass(self):
         return self.__mass
     
+#%%
     
 class Battery:
     def __init__(self, Voltage, Capacity, C, S, mass):
@@ -57,6 +92,8 @@ class Battery:
     @property
     def mass(self):
         return self.__mass
+
+#%%
     
 class Motor:
     def __init__(self, Kv, mass):
@@ -70,6 +107,8 @@ class Motor:
     @property
     def mass(self):
         return self.__mass
+
+#%%
 
 class ESC:
     def __init__(self, I, Imax, mass):
@@ -89,17 +128,4 @@ class ESC:
     def mass(self):
         return self.__mass
 
-        
-class AirFrame:
-    def __init__(self, n, mass):
-        self.__n = n # number of arms
-        self.__mass = mass # maxx
 
-    @property
-    def numArms(self):
-        return self.__n
-    
-    @property
-    def mass(self):
-        return self.__mass
-        
