@@ -88,7 +88,6 @@ class Battery:
     def S(self):
         return self.__S
     
-        
     @property
     def mass(self):
         return self.__mass
@@ -96,9 +95,10 @@ class Battery:
 #%%
     
 class Motor:
-    def __init__(self, Kv, mass):
-        self.Kv = Kv
-        self.mass = mass
+    def __init__(self, Kv, mass, name):
+        self.__Kv = Kv
+        self.__mass = mass
+        self.__name = name
     
     @property
     def Kv(self):
@@ -107,6 +107,10 @@ class Motor:
     @property
     def mass(self):
         return self.__mass
+    
+    @property
+    def name(self):
+        return self.__name
 
 #%%
 
@@ -127,5 +131,21 @@ class ESC:
     @property
     def mass(self):
         return self.__mass
+    
+# #%%
+
+# class Configuration:
+#     def __init__(self, AirFrame, FlightComputer, Prop, Battery, Motor, ESC):
+#         self.__AirFrame = AirFrame
+#         self.__FlightComputer = FlightComputer
+#         self.__Prop = Prop
+#         self.__Battery = Battery
+#         self.__Motor = Motor
+#         self.__ESC = ESC
+    
+#     @property
+#     def getAUW(self):
+        
+#         return AU
 
 

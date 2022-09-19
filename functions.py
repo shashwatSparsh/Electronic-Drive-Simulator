@@ -23,7 +23,16 @@ def AUW(frame: c.AirFrame, flightComp: c.FlightComputer, Batt: c.Battery,\
     AUW = frame.mass + flightComp.mass + Batt.mass + \
         (n * (motor.mass + ESC.mass + prop.mass))
     
-    return AUW;
+    return AUW
+
+def totalWeight(frame: c.AirFrame, flightComp: c.FlightComputer, Batt: c.Battery,\
+        motor: c.Motor, ESC: c.ESC, prop: c.Prop):
+    # frame = air frame, flightComp = Flight Computer, Batt = Battery
+    # motor = motor, ESC = ESC, prop = propeller
+    
+    totalWeight = (AUW(frame, flightComp, Batt, motor, ESC, prop)) * (9.81) / 1000
+    
+    return totalWeight
 
 def AAD(AUW: float, Pdot: float, Batt: c.Battery):
     # Pdot: Power required to lift 1kg of equipment
@@ -84,6 +93,12 @@ def thrustTotal(T: float, n: int):
     # n: Number of motors
     return T*n
 
+def TWR(T: float, W: float):
+    # T: Total Thrust
+    # W: Total Weight
+    # For Good Control Authority, T/W >= 2
+    return T/W
+
 # def calcThrust(D: float, rho: float, P: float):
 #     # D: Prop Diameter in [m]
 #     # rho: air density [1255 kg/m^3]
@@ -93,5 +108,7 @@ def thrustTotal(T: float, n: int):
 # def calcNoDimThrust(D: float, rho: float, P: float, g: float):
 #     # Standard 
 #     return (np.power(((np.pi/2) * (D**2) * rho * (P**2)), (1/3))) / g
+
+#%%
 
     
